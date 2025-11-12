@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 export default function LightDarkMode() {
 
     const [theme, setTheme]= useState (
@@ -14,4 +15,12 @@ export default function LightDarkMode() {
     const toggleTheme = () => {
         setTheme ((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
     };
-}
+
+   return (
+    <button  onClick={toggleTheme}>
+      {theme === "light" ? "🌙" : "☀️"}
+    </button>
+  );
+}   
+    
+    
