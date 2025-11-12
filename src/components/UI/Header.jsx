@@ -5,7 +5,13 @@ export default function Header() {
     <header className={styles.appHeader}>
       <h1>
         {" "}
-        <Link to="/">🎙️ Podcast App</Link>
+        <Link to="/">
+         <img
+         src="./img/Favicon.png"
+          alt="Podcast App Logo"
+          className={styles.logo}
+          />
+         Podcast App</Link>
       </h1>
     </header>
   );
