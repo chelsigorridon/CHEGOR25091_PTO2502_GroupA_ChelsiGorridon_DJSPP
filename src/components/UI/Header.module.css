@@ -1,12 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 .appHeader {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   background: white;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  font-family:'Bangers', cursive;
 }
 
 .appHeader a {
   text-decoration: none;
   color: black;
+}
+
+.logo{
+  height: 50px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
