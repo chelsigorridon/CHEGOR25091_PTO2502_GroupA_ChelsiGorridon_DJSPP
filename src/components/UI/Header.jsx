@@ -1,5 +1,6 @@
 import styles from "./Header.module.css";
 import LightDarkMode from "./LightDarkMode.jsx";
+import SearchBar from "../Filters/SearchBar.jsx";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -18,6 +19,7 @@ export default function Header() {
       </h1>
 
      <LightDarkMode/>
+     <SearchBar/>
 
     </header>
 

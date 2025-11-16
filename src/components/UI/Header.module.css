@@ -26,28 +26,3 @@ button {
   font-size: 1.5rem;
 }
 
-/* Default styles (light mode) */
-body.light {
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --button-bg: #f0f0f0;
-  --button-text: #1a1a1a;
-  --button-hover-bg: #e0e0e0;
-  --button-hover-text: #000000;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Dark mode styles */
-body.dark {
-  --bg-color: #1a1a1a;
-  --text-color: #f5f5f5;
-  --button-bg: #333333;
-  --button-text: #f5f5f5;
-  --button-hover-bg: #444444;
-  --button-hover-text: #ffffff;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}

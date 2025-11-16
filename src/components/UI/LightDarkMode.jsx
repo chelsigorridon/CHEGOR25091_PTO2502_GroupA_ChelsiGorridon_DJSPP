@@ -18,7 +18,7 @@ export default function LightDarkMode() {
 
    return (
     <button  onClick={toggleTheme}>
-      {theme === "light" ? "🌙" : "☀️"}
+      {theme === "light" ? "🌕" : "☀️"}
     </button>
   );
 }   
