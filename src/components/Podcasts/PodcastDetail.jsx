@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // ← add this
 import styles from "./PodcastDetail.module.css";
 import { formatDate } from "../../utils/formatDate";
 import GenreTags from "../UI/GenreTags";
+import EpisodeCard from "../Podcasts/EpisodeCard";
 
 export default function PodcastDetail({ podcast, genres }) {
   const [selectedSeasonIndex, setSelectedSeasonIndex] = useState(0);
@@ -95,6 +96,26 @@ export default function PodcastDetail({ podcast, genres }) {
               </div>
             </div>
           ))}
+             
+
+                <div className={styles.episodeList}>
+        {season.episodes.map((ep, index) => (
+          <EpisodeCard
+            key={ep.id}
+            episode={{
+              id: ep.id,
+              title: ep.title,
+              description: ep.description,
+              showId: podcast.id,
+              showTitle: podcast.title,
+              season: selectedSeasonIndex + 1,
+            }}
+            seasonImage={season.image}
+            index={index}
+          />
+            ))}
+            </div>
+
         </div>
       </div>
     </div>
