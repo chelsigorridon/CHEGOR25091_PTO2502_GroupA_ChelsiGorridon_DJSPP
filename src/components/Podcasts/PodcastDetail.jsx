@@ -83,41 +83,32 @@ export default function PodcastDetail({ podcast, genres }) {
             ))}
           </select>
         </div>
-
-        <div className={styles.episodeList}>
-          {season.episodes.map((ep, index) => (
-            <div key={index} className={styles.episodeCard}>
-              <img className={styles.episodeCover} src={season.image} alt="" />
-              <div className={styles.episodeInfo}>
-                <p className={styles.episodeTitle}>
-                  Episode {index + 1}: {ep.title}
-                </p>
-                <p className={styles.episodeDesc}>{ep.description}</p>
-              </div>
-            </div>
-          ))}
-             
-
-                <div className={styles.episodeList}>
-        {season.episodes.map((ep, index) => (
-          <EpisodeCard
-            key={ep.id}
-            episode={{
-              id: ep.id,
-              title: ep.title,
-              description: ep.description,
-              showId: podcast.id,
-              showTitle: podcast.title,
-              season: selectedSeasonIndex + 1,
-            }}
-            seasonImage={season.image}
-            index={index}
-          />
+ 
+ 
+       
+           
+   
+    <div className={styles.episodeList}>
+      {season.episodes.map((ep, index) => (
+        <EpisodeCard
+          key={`${podcast.id}-s${selectedSeasonIndex}-e${index}`}
+          episode={{
+            episodeId: `${podcast.id}-s${selectedSeasonIndex}-e${index}`,
+            title: ep.title,
+            description: ep.description,
+            showId: podcast.id,
+            showTitle: podcast.title,
+            season: selectedSeasonIndex + 1,
+          }}
+          seasonImage={season.image}
+          index={index}
+        />
+          
             ))}
             </div>
 
         </div>
       </div>
-    </div>
+      
   );
 }
