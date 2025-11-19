@@ -1,6 +1,5 @@
 import styles from "./Header.module.css";
 import LightDarkMode from "./LightDarkMode.jsx";
-import SearchBar from "../Filters/SearchBar.jsx";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -15,11 +14,15 @@ export default function Header() {
           alt="Podcast App Logo"
           className={styles.logo}
           />
-         Podcast App </Link>
+         Podcast App 
+          
+         </Link>
       </h1>
 
+       <Link to="/favourites">Favourites</Link>
+   
      <LightDarkMode/>
-     <SearchBar/>
+     
 
     </header>
 
