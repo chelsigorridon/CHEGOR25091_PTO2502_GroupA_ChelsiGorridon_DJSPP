@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from  "./carousel.module.css";
+import styles from  "./Carousel.module.css";
 import { useNavigate } from "react-router-dom";
 import { genres as genreList } from "../../data.js";
 
@@ -15,7 +15,7 @@ export default function Carousel({ items }) {
     setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 
-  const handleClick = (id) => {
+  const handleClick = (id) => { 
     navigate(`/show/${id}`);
   };
 
@@ -58,6 +58,7 @@ export default function Carousel({ items }) {
                   {safeGenres.slice(0, 3).map((genreId) => {
                     const g = genreList.find((genre) => genre.id === genreId);
                     return (
+
                       <span key={genreId} className={styles.genreTag}>
                         {g ? g.title : "Unknown"}
                       </span>

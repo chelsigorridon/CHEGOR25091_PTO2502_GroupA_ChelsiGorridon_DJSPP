@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(235, 235, 246, 0.592) ;
+}
+
+.pageTitle {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 600;
+   font-family:'Bangers', cursive;
+  
+}
+
+.sortBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.sortSelect {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+/* Group heading */
+.showGroup {
+  margin-bottom: 35px;
+}
+
+.showTitle {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Grid of episode cards */
+.episodeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+}
+
+/* Episode card styling */
+.episodeCard {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 6px;
+  transition: 0.2s ease;
+}
+
+.episodeCard:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px;
+}
+
+.episodeTitle {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.date {
+  opacity: 0.7;
+}

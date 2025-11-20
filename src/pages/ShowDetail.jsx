@@ -23,13 +23,13 @@ export default function ShowDetail() {
   const location = useLocation();
   const { genres } = location.state || {};
 
-  const [podcast, setPodcast] = useState([]);
+  const [podcast, setPodcast] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchSinglePodcast(id, setPodcast, setError, setLoading);
-  }, []);
+    fetchSinglePodcast(Number(id), setPodcast, setError, setLoading);
+  }, [id]);
   return (
     <>
       {loading && <Loading message="Loading podcast..." />}
@@ -37,8 +37,8 @@ export default function ShowDetail() {
       {error && (
         <Error message={`Error occurred while fetching podcast: ${error}`} />
       )}
-      {!loading && !error && (
-        <PodcastDetail podcast={podcast} genres={genres} />
+      {!loading && !error && podcast && (
+    <PodcastDetail podcast={podcast} genres={genres} />
       )}
     </>
   );

@@ -16,13 +16,13 @@ import Carousel from "../components/UI/Carousel";
 export default function Home() {
   const { podcasts, loading, error } = useContext(PodcastContext);
 
-  console.log(podcasts[0]);
   
-const carouselItems =
-  podcasts?.map((pod) => ({
-    id: pod.id,
-    title: pod.title,
-    image: pod.image || "https://via.placeholder.com/300x400?text=No+Image",
+  const carouselItems =
+  podcasts?.map((p) => ({
+    id: p.id,
+    title: p.title || p.name,
+    image: p.image || p.image_url || "/fallback-300x400.png",
+    genres: p.genres || p.categories || p.tags || [],
   })) || [];
 
   return (
@@ -34,9 +34,15 @@ const carouselItems =
         <SortSelect />
       </section>
 
-      {!loading && !error && podcasts.length > 0 && (
-        <Carousel items={carouselItems} />
-      )}
+      {!loading && carouselItems.length > 0 && (
+  <section style={{ marginBottom: "1.5rem" }}>
+    <h2 style={{ fontSize: "1.6rem", marginBottom: "0.75rem" }}>
+      Recommended
+    </h2>
+
+    <Carousel items={carouselItems} autoPlay={true} autoPlayInterval={6000} />
+  </section>
+)}
 
       {loading && <Loading message="Loading podcasts..." />}
       {error && (

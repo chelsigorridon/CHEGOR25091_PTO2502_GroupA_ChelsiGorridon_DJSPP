@@ -57,12 +57,19 @@
   font-size: small;
   background-color: rgb(191, 191, 239);
   border-radius: 5px; 
-  border: black;
+  border: black, solid 1px;
+  font-weight: bold;
+  
+}
+
+.play:hover {
+  background-color: rgb(124, 124, 255);
+  color: rgb(38, 38, 40);
+  transition: 0.2s ease;
 }
 
 .heart {
   background: none;
-  border: none;
   cursor: pointer;
   padding: 4px;
   display: flex;

@@ -3,7 +3,7 @@ import Header from "./components/UI/Header";
 import Home from "./pages/Home";
 import ShowDetail from "./pages/ShowDetail";
 import Favourites from "./pages/FavePage";
-
+import AudioPlayer from "./components/UI/AudioPlayer";
 
 
 
@@ -28,7 +28,9 @@ export default function App() {
           <Route path={`/show/:id`} element={<ShowDetail />} />
             <Route path="/favourites" element={<Favourites />} />
         </Routes>
+        <AudioPlayer /> 
    
     </>
   );
+
 }

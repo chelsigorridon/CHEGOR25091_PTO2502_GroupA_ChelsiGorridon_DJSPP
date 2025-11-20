@@ -1,5 +1,6 @@
  import { useFavourites } from "../context/FaveContext"
 import { useState } from "react";
+import styles from "./FavePage.module.css";
 
 export default function Favourites() {
   const { favourites } = useFavourites();
@@ -29,30 +30,47 @@ export default function Favourites() {
   };
 
   return (
-    <div>
-      <h1>Your Favourites</h1>
+    <div className={styles.container}>
+      <h1 className={styles.pageTitle}>Your Favourite Episodes</h1>
 
-      <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
-        <option value="title-asc">Title A–Z</option>
-        <option value="title-desc">Title Z–A</option>
-        <option value="date-newest">Newest Added</option>
-        <option value="date-oldest">Oldest Added</option>
-      </select>
+      <div className={styles.sortBar}>
+        <label>Sort by:</label>
+        <select
+          className={styles.sortSelect}
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+        >
+          <option value="title-asc">Title A–Z</option>
+          <option value="title-desc">Title Z–A</option>
+          <option value="date-newest">Newest Added</option>
+          <option value="date-oldest">Oldest Added</option>
+        </select>
+      </div>
+
+      {Object.keys(grouped).length === 0 && (
+        <p className={styles.empty}>You haven't added any favourites yet 💔</p>
+      )}
 
       {Object.keys(grouped).map((showTitle) => (
-        <div key={showTitle}>
-          <h2>{showTitle}</h2>
+        <div key={showTitle} className={styles.showGroup}>
+          <h2 className={styles.showTitle}>{showTitle}</h2>
 
-          {sortEpisodes(grouped[showTitle]).map((ep) => (
-            <div key={ep.episodeId}>
-              <p>{ep.title}</p>
-              <small>
-                Season {ep.seasonNumber} • Episode {ep.episodeNumber}
-              </small>
-              <br />
-              <small>Added: {new Date(ep.addedAt).toLocaleString()}</small>
-            </div>
-          ))}
+          <div className={styles.episodeGrid}>
+            {sortEpisodes(grouped[showTitle]).map((ep) => (
+              <div key={ep.episodeId} className={styles.episodeCard}>
+                <p className={styles.episodeTitle}>{ep.title}</p>
+
+                <div className={styles.meta}>
+                  <span>
+                    Season {ep.seasonNumber} • Episode {ep.episodeNumber}
+                  </span>
+                  <span className={styles.date}>
+                    Added: {new Date(ep.addedAt).toLocaleString()}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       ))}
     </div>
