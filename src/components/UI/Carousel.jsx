@@ -19,6 +19,8 @@ export default function Carousel({ items }) {
     navigate(`/show/${id}`);
   };
 
+  
+
   return (
     <div className={styles.carouselContainer}>
       <button onClick={prevSlide} className={styles.navButton}>
@@ -32,28 +34,40 @@ export default function Carousel({ items }) {
           transform: `translateX(-${currentIndex * (100 / items.length)}%)`,
         }}
       >
-        {items.map((item, index) => (
-          <div
-            key={item.id || index}
-            className={styles.carouselItem}
-            onClick={() => handleClick(item.id)}
-          >
-          <img className ={styles.imageWrap} src={item.image} alt={item.title} />
-            
-            {item.genres && item.genres.length > 0 && (
-             <div className={styles.genres}>
-            {item.genres.slice(0, 3).map((genreId) => {
-            const g = genreList.find((genre) => genre.id === genreId);
-             return (
-            <span key={genreId} className={styles.genreTag}>
-          {g ? g.title : "Unknown"}
-           </span>
-           );
-           })}
-              </div>
-            )}
-          </div>
-        ))}
+        {items.map((item, index) => {
+          
+          const safeGenres = Array.isArray(item.genres) ? item.genres : [];
+
+          return (
+            <div
+              key={item.id || index}
+              className={styles.carouselItem}
+              onClick={() => {
+                console.log("CARD CLICKED → ID:", item.id);
+                handleClick(item.id);
+              }}
+            >
+              <img
+                className={styles.imageWrap}
+                src={item.image}
+                alt={item.title}
+              />
+
+              {safeGenres.length > 0 && (
+                <div className={styles.genres}>
+                  {safeGenres.slice(0, 3).map((genreId) => {
+                    const g = genreList.find((genre) => genre.id === genreId);
+                    return (
+                      <span key={genreId} className={styles.genreTag}>
+                        {g ? g.title : "Unknown"}
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <button onClick={nextSlide} className={styles.navButton}>
@@ -62,4 +76,3 @@ export default function Carousel({ items }) {
     </div>
   );
 }
-
