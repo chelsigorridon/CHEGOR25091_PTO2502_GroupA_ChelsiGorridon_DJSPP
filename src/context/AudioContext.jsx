@@ -35,3 +35,78 @@ export function AudioProvider({ children }) {
         }
       }));
     };
+
+     audio.addEventListener("timeupdate", updateProgress);
+    audio.addEventListener("loadedmetadata", () =>
+      setDuration(audio.duration)
+    );
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateProgress);
+    };
+  }, [currentSrc]);
+
+  const playAudio = (src) => {
+    const audio = audioRef.current;
+
+    if (currentSrc !== src) {
+      setCurrentSrc(src);
+      audio.src = src;
+
+      const saved = listeningHistory[src];
+      if (saved) audio.currentTime = saved.lastPosition;
+    }
+
+    audio.play();
+    setIsPlaying(true);
+  };
+
+  const pauseAudio = () => {
+    audioRef.current.pause();
+    setIsPlaying(false);
+  };
+
+  const seekAudio = (time) => {
+    audioRef.current.currentTime = time;
+    setProgress(time);
+  };
+
+  const resetHistory = () => {
+    setListeningHistory({});
+    localStorage.removeItem("listeningHistory");
+  };
+
+  
+  useEffect(() => {
+    const warn = (e) => {
+      if (isPlaying) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [isPlaying]);
+
+  return (
+    <AudioContext.Provider
+      value={{
+        isPlaying,
+        currentSrc,
+        playAudio,
+        pauseAudio,
+        seekAudio,
+        progress,
+        duration,
+        listeningHistory,
+        resetHistory,
+      }}
+    >
+      {children}
+    </AudioContext.Provider>
+  );
+}
+
+export function useAudio() {
+  return useContext(AudioContext);
+}
