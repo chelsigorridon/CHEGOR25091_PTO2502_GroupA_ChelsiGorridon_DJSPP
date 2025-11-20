@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { fetchPodcasts } from "../api/fetchPata";
 
 const AudioContext = createContext();
 
@@ -14,6 +15,10 @@ export function AudioProvider({ children }) {
     const saved = localStorage.getItem("listeningHistory");
     return saved ? JSON.parse(saved) : {};
   });
+
+   useEffect(() => {
+      fetchPodcasts(setCurrentSrc, setIsPlaying,  setProgress, setDuration);
+    }, []);
 
   useEffect(() => {
     localStorage.setItem("listeningHistory", JSON.stringify(listeningHistory));
