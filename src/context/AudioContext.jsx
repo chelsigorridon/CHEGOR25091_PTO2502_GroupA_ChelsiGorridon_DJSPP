@@ -14,3 +14,24 @@ export function AudioProvider({ children }) {
     const saved = localStorage.getItem("listeningHistory");
     return saved ? JSON.parse(saved) : {};
   });
+
+  useEffect(() => {
+    localStorage.setItem("listeningHistory", JSON.stringify(listeningHistory));
+  }, [listeningHistory]);
+
+ 
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    const updateProgress = () => {
+      setProgress(audio.currentTime);
+
+      setListeningHistory((prev) => ({
+        ...prev,
+        [currentSrc]: {
+          lastPosition: audio.currentTime,
+          duration: audio.duration,
+          finished: audio.currentTime >= audio.duration - 1
+        }
+      }));
+    };
