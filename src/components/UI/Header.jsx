@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import LightDarkMode from "./LightDarkMode.jsx";
 import { Link } from "react-router-dom";
+import logo from "../../img/Favicon.png";
 
 export default function Header() {
   return (
