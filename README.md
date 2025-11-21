@@ -5,7 +5,8 @@ Users can search shows, filter by genre, sort by various criteria, explore recom
 
  Live Demo
 
-🔗 
+🔗 https://chegor-25091-pto-2502-group-a-chels.vercel.app/
+    Local Host: http://localhost:5173/
 
 ## The app was built with:
 
@@ -309,6 +310,7 @@ Users can search shows, filter by genre, sort by various criteria, explore recom
     npm run dev
    ```
 4. Visit http://localhost:5173 in your browser.
+
 
 -  **Future Enhancements**
 
