@@ -311,8 +311,26 @@ Users can search shows, filter by genre, sort by various criteria, explore recom
    ```
 4. Visit http://localhost:5173 in your browser.
 
+## Tech Stack
 
--  **Future Enhancements**
+- React (Hooks + Context API)
+
+- React Router
+
+- Vite
+
+- CSS Modules
+
+- CSS Variables (Light/Dark theme)
+
+- LocalStorage (Favourites, Theme, Listening History)
+
+- Netlify Podcast API (Data source)
+
+- Vercel (Deployment)
+
+
+## Future Enhancements
 
 - Use real audio URLs when available
 
