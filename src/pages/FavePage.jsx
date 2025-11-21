@@ -2,10 +2,46 @@
 import { useState } from "react";
 import styles from "./FavePage.module.css";
 
+/**
+ * Favourites Page Component
+ *
+ * Displays all favourited podcast episodes grouped by show title.
+ * Allows sorting by:
+ *  - Title (A–Z)
+ *  - Title (Z–A)
+ *  - Date added (newest first)
+ *  - Date added (oldest first)
+ *
+ * Episodes are grouped under their respective show, and each card displays:
+ *  - Episode title
+ *  - Season and episode number
+ *  - Date/time the episode was added to favourites
+ *
+ * Uses FavouritesContext for persistent storage via localStorage.
+ *
+ * @returns {JSX.Element} Rendered favourites page UI.
+ */
+
+ /**
+   * Access the favourites array from context.
+   * @type {Array}
+   */
+
 export default function Favourites() {
   const { favourites } = useFavourites();
+
+/**
+   * Current sorting option chosen by user.
+   * @type {[string, Function]}
+   */
+
   const [sortOption, setSortOption] = useState("title-asc");
 
+   /**
+   * Groups favourite episodes under their corresponding show title.
+   *
+   * @type {Object.<string, Array>}
+   */
 
   const grouped = favourites.reduce((acc, fav) => {
     if (!acc[fav.showTitle]) acc[fav.showTitle] = [];
@@ -13,7 +49,13 @@ export default function Favourites() {
     return acc;
   }, {});
 
-  
+   /**
+   * Applies the selected sorting option to a given array of episodes.
+   *
+   * @param {Array} episodes - List of favourite episodes for a show.
+   * @returns {Array} Sorted list of episodes.
+   */
+
   const sortEpisodes = (episodes) => {
     switch (sortOption) {
       case "title-asc":
