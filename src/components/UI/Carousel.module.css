@@ -1,3 +1,10 @@
+/* ------------------------------------------------------ */
+/*  Carousel Outer Container                             */
+/* ------------------------------------------------------ */
+/* Wraps the entire carousel including the cards and arrows.
+   Uses a max-width for centered layout, flex for vertical
+   alignment, and a subtle background for styling. */
+
 .carouselContainer {
   position: relative;
   width: 100%;               
@@ -11,11 +18,23 @@
    border-radius: 10px;
 }
 
+/* ------------------------------------------------------ */
+/* Carousel Track (sliding row of cards)               */
+/* ------------------------------------------------------ */
+/* Contains the cards inside a horizontal flex row.  
+   Moves left or right using transform for smooth sliding. */
+
 
 .carouselTrack {
   display: flex;
   transition: transform 0.3s ease-in-out;
 }
+
+/* ------------------------------------------------------ */
+/*  Individual Carousel Cards                            */
+/* ------------------------------------------------------ */
+/* Fixed width so 1 slide shows at a time. Each card has
+   its own shadow, border radius, and theme-based colors. */
 
 .carouselItem {
   flex: 0 0 250px;  
@@ -29,12 +48,23 @@
   color: var(--card-text);
 }
 
+
+/* ------------------------------------------------------ */
+/*  Image Styling                                       */
+/* ------------------------------------------------------ */
+/* Restrict image height, maintain shape, avoid distortion. */
+
 .imageWrap {
   width: 100%;
   height: 160px;     
   object-fit: cover; 
   border-radius: 10px;
 }
+
+/* ------------------------------------------------------ */
+/*  Genre Tags Container                                */
+/* ------------------------------------------------------ */
+/* Lays out the tags in a neat row with wrapping support. */
 
 .genres {
   margin-top: 8px;
@@ -44,12 +74,20 @@
   flex-wrap: wrap;
 }
 
+
+
 .genreTag {
   padding: 4px 8px;
   background: rgba(191, 191, 239, 0.649);
   border-radius: 6px;
   font-size: 12px;
 }
+
+/* ------------------------------------------------------ */
+/* Carousel Navigation Buttons                        */
+/* ------------------------------------------------------ */
+/* Positioned over the carousel container, centered on Y-axis,
+   with shadows and circular backgrounds for a clean look. */
 
 .navButton {
   position: absolute;
