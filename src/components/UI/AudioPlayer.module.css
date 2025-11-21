@@ -1,3 +1,10 @@
+/* ----------------------------------------- */
+/* Audio Player Container                 */
+/* ----------------------------------------- */
+/* Fixed to the bottom of the screen so the
+   player is always visible across all pages.
+   Uses flex layout to align items horizontally. */
+
 .player {
   position: fixed;
   bottom: 0;
@@ -13,6 +20,12 @@
   z-index: 1000;
 }
 
+/* ----------------------------------------- */
+/*  Play / Pause Button                    */
+/* ----------------------------------------- */
+/* Styled as a pill-shaped button with bold,
+   visible contrast to stand out in the UI. */
+
 .playBtn {
   background: #382ce8db;
   padding: 8px 14px;
@@ -22,11 +35,21 @@
   font-size: 18px;
 }
 
+/* ----------------------------------------- */
+/*  Playback Slider                        */
+/* ----------------------------------------- */
+/* Expands to take up all remaining horizontal
+   space between the title and time display. */
+
 .slider {
   flex: 1;
 
 }
 
+/* ----------------------------------------- */
+/*  Time Display (progress / duration)     */
+/* ----------------------------------------- */
+/* Small, subtle timestamp UI. */
 
 
 .time {
