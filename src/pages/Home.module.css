@@ -1,11 +1,29 @@
 .controls {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+ display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 0.2rem;         
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;          
   
 }
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.Recommended {
+  font-weight: bold;
+  display: flex;
+  font-size: 25px;
+  background: rgba(191, 191, 239, 0.35);
+  max-width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 
 @media (min-width: 667px) {
   .controls {
@@ -23,18 +41,5 @@
 
 }
 
-.Recommended {
-  font-weight: bold;
-  margin: 20px;
-  display: flex;
-  align-items: center;
-  justify-content:left;
-  margin-left: 140px;
-  font-size: 30px;
-  background: rgba(191, 191, 239, 0.35);
-  max-width: fit-content;
-  padding: 10px;
-  border-radius: 10px;
-}
 
 
