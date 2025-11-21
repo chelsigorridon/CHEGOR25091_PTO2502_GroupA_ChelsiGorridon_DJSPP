@@ -5,9 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* space between logo and right side */
-  padding: 0.8rem 1.5rem;
+  padding: 0.9rem 1.6rem;
   background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(160, 150, 235, 0.745);
   font-family: 'Bangers', cursive;
   border-bottom: 2px solid #e7e7ff;
 }
@@ -17,7 +17,7 @@
   margin: 0;
   display: flex;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 35px;
 }
 
 .appHeader a {
@@ -35,8 +35,8 @@
 
 /* Logo image */
 .logo {
-  height: 45px;
-  width: 45px;
+  height: 50px;
+  width: 50px;
   object-fit: contain;
 }
 
