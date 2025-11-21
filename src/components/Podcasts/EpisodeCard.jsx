@@ -3,12 +3,50 @@ import styles from "./EpisodeCard.module.css";
 import { useAudio } from "../../context/AudioContext";
 import { useState, useEffect } from "react"; 
 
+/**
+ * EpisodeCard Component
+ *
+ * Renders a single episode card with:
+ * - Episode thumbnail (season image)
+ * - Episode title & description
+ * - Favourite toggle (filled/empty heart)
+ * - Play button (connected to AudioContext)
+ *
+ * Features:
+ * - Saves and removes favourites using FaveContext
+ * - Plays audio using AudioContext
+ * - Stores timestamp of when an episode was favourited
+ * - Uses a placeholder audio URL until the API provides one
+ *
+ * @component
+ *
+ * @param {Object} props
+ * @param {Object} props.episode - Episode data object
+ * @param {string|undefined} props.seasonImage - The episode's season artwork
+ * @param {number} props.index - Episode index within its season
+ *
+ * @param {string} props.episode.episodeId - Unique ID for this episode
+ * @param {string} props.episode.title - Episode title
+ * @param {string} props.episode.description - Short episode description
+ * @param {string} props.episode.showId - ID of the parent podcast
+ * @param {string} props.episode.showTitle - Title of the parent podcast
+ * @param {number} props.episode.season - Season number
+ *
+ * @returns {JSX.Element} A fully interactive episode card
+ */
+
 export default function EpisodeCard({ episode, seasonImage, index }) {
   const { addFavourite, removeFavourite, isFavourite } = useFavourites();
    const { playAudio } = useAudio();
     const [audioUrl, setAudioUrl] = useState(null);
  
   const fav = isFavourite(episode.episodeId);
+
+ /**
+   * Toggles an episode as favourite by either adding or removing it from the favourites list.
+   * Adds timestamp + metadata for sorting and display in the favourites page.
+   */
+
 
   const toggleFavourite = () => {
     const favData = {
@@ -25,6 +63,11 @@ export default function EpisodeCard({ episode, seasonImage, index }) {
 
     fav ? removeFavourite(episode.episodeId) : addFavourite(favData);
   };
+
+   /**
+   * Loads a placeholder audio URL when the component mounts.
+   * (The provided API does not include audio files.)
+   */
 
    useEffect(() => {
     setAudioUrl("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
