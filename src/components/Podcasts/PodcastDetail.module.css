@@ -65,6 +65,7 @@ strong {
 }
 
 .genres {
+  
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -73,7 +74,7 @@ strong {
 }
 
 .genreBadge {
-  background-color: #e5e7eb;
+  background: rgba(191, 191, 239, 0.649);
   padding: 0.3rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.85rem;

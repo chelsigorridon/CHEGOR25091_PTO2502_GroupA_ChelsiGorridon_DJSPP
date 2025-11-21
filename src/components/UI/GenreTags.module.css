@@ -3,7 +3,7 @@
 }
 
 .tag {
-  background-color: grey;
+  background: rgba(191, 191, 239, 0.649);
   padding: 0.3rem 0.6rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
