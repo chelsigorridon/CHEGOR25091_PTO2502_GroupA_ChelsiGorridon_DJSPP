@@ -8,12 +8,14 @@
 }
 
 .icon {
-  font-size: 1.2rem;
   transition: 0.25s ease;
-  margin-left: auto;
+   font-size: 1.4rem;
+  padding: 0.3rem 0.3rem;
+  border-radius: 6px;
+  
 }
 
-/* When dark mode is active (CSS attribute selector) */
+
 [data-theme='dark'] .toggle {
   background: var(--toggle-bg-dark);
 }
