@@ -3,33 +3,34 @@
   bottom: 0;
   left: 0;
   right: 0;
-
-  background: #1a1a1a;
-  color: white;
-
+  background: rgb(191, 191, 239);
+ color: rgb(15, 15, 15);
   display: flex;
   align-items: center;
   gap: 12px;
-
+ font-weight: bold;
   padding: 10px 15px;
   z-index: 1000;
 }
 
 .playBtn {
-  background: #ffffff22;
+  background: #382ce8db;
   padding: 8px 14px;
   border-radius: 6px;
-  border: none;
-  color: white;
+  border: solid black 1px;
   cursor: pointer;
   font-size: 18px;
 }
 
 .slider {
   flex: 1;
+
 }
+
+
 
 .time {
   font-size: 13px;
   opacity: 0.8;
+  
 }
