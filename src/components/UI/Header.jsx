@@ -21,7 +21,7 @@ export default function Header() {
 
         <div className={styles.headerRight}>
          <Link to="/favourites" className={styles.favebtn}>
-         Favourites 💙
+          💙
         </Link>
   
          <LightDarkMode />
