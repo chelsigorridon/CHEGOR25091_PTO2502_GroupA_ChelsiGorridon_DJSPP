@@ -6,7 +6,8 @@ const AudioContext = createContext();
 export function AudioProvider({ children }) {
   const audioRef = useRef(new Audio());
 
-  const [currentSrc, setCurrentSrc] = useState(null);
+  const [currentEpisode, setCurrentEpisode] = useState(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -21,41 +22,70 @@ export function AudioProvider({ children }) {
   }, [listeningHistory]);
 
  
-  useEffect(() => {
+ useEffect(() => {
     const audio = audioRef.current;
 
-    const updateProgress = () => {
+    const handleTimeUpdate = () => {
       setProgress(audio.currentTime);
+      setDuration(audio.duration || 0);
 
-      setListeningHistory((prev) => ({
-        ...prev,
-        [currentSrc]: {
-          lastPosition: audio.currentTime,
-          duration: audio.duration,
-          finished: audio.currentTime >= audio.duration - 1
-        }
-      }));
+      if (!currentEpisode) return;
+
+      setListeningHistory((prev) => {
+        const ep = prev[currentEpisode.id] || {};
+
+        const finished = 
+          audio.duration && audio.currentTime >= audio.duration - 1;
+
+        return {
+          ...prev,
+          [currentEpisode.id]: {
+            ...ep,
+            id: currentEpisode.id,
+            title: currentEpisode.title,
+            showTitle: currentEpisode.showTitle,
+            src: currentEpisode.src,
+            lastPosition: audio.currentTime,
+            duration: audio.duration || ep.duration || 0,
+            finished,
+            lastPlayedAt: new Date().toISOString(),
+          },
+        };
+      });
     };
 
-     audio.addEventListener("timeupdate", updateProgress);
-    audio.addEventListener("loadedmetadata", () =>
-      setDuration(audio.duration)
-    );
+    audio.addEventListener("timeupdate", handleTimeUpdate);
 
     return () => {
-      audio.removeEventListener("timeupdate", updateProgress);
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
     };
-  }, [currentSrc]);
+  }, [currentEpisode]);
 
-  const playAudio = (src) => {
+ 
+  useEffect(() => {
+    const warn = (e) => {
+      if (!isPlaying) return;
+      e.preventDefault();
+      e.returnValue = "";
+    };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [isPlaying]);
+
+  
+  const playAudio = ({ id, src, title, showTitle }) => {
     const audio = audioRef.current;
 
-    if (currentSrc !== src) {
-      setCurrentSrc(src);
+    if (!currentEpisode || currentEpisode.id !== id) {
+      setCurrentEpisode({ id, src, title, showTitle });
       audio.src = src;
 
-      const saved = listeningHistory[src];
-      if (saved) audio.currentTime = saved.lastPosition;
+      const saved = listeningHistory[id];
+      if (saved && saved.lastPosition && !saved.finished) {
+        audio.currentTime = saved.lastPosition; 
+      } else {
+        audio.currentTime = 0; 
+      }
     }
 
     audio.play();
@@ -77,23 +107,12 @@ export function AudioProvider({ children }) {
     localStorage.removeItem("listeningHistory");
   };
 
-  
-  useEffect(() => {
-    const warn = (e) => {
-      if (isPlaying) {
-        e.preventDefault();
-        e.returnValue = "";
-      }
-    };
-    window.addEventListener("beforeunload", warn);
-    return () => window.removeEventListener("beforeunload", warn);
-  }, [isPlaying]);
-
   return (
     <AudioContext.Provider
       value={{
+        audioRef,
+        currentEpisode,
         isPlaying,
-        currentSrc,
         playAudio,
         pauseAudio,
         seekAudio,
