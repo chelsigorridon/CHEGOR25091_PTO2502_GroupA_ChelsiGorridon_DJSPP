@@ -2,6 +2,27 @@ import styles from "./Header.module.css";
 import LightDarkMode from "./LightDarkMode.jsx";
 import { Link } from "react-router-dom";
 
+/**
+ * @file Header.jsx
+ * @description Main application header component.  
+ * Displays the site logo, navigation link to favourites,  
+ * and the Light/Dark mode toggle.  
+ * Appears on every page of the app.
+ */
+
+
+/**
+ * Header Component
+ *
+ * Renders the top navigation bar used across the entire app.
+ * Includes:
+ * - App logo that links back to the home page
+ * - Favourites button (💙)
+ * - Light/Dark theme toggle
+ *
+ * @component
+ * @returns {JSX.Element} The rendered header layout.
+ */
 
 export default function Header() {
   return (
