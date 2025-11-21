@@ -1,28 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
+/* Entire header container */
 .appHeader {
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  font-family:'Bangers', cursive;
+  align-items: center;
+  justify-content: space-between; /* space between logo and right side */
+  padding: 0.8rem 1.5rem;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  font-family: 'Bangers', cursive;
+  border-bottom: 2px solid #e7e7ff;
+}
+
+/* Left side: logo + text */
+.appHeader h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
 }
 
 .appHeader a {
   text-decoration: none;
-  color: black;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.logo{
-  height: 50px;
-  vertical-align: middle;
-  margin-right: 10px;
+.appHeader a:hover {
+  opacity: 0.8;
+  transition: 0.2s ease-in-out;
 }
 
+/* Logo image */
+.logo {
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+}
+
+/* Right side navigation buttons */
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Favourites button styling */
+.favebtn {
+  font-size: 1.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  background: rgba(191, 191, 239, 0.35);
+  border: 1px solid rgba(94, 94, 180, 0.35);
+  transition: 0.25s ease;
+}
+
+.favebtn:hover {
+  background: rgba(191, 191, 239, 0.55);
+  transform: translateY(-1px);
+}
+
+/* Light/Dark mode button, icons, etc. */
 button {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
 }
-

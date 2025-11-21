@@ -36,7 +36,7 @@ export default function Home() {
 
       {!loading && carouselItems.length > 0 && (
   <section style={{ marginBottom: "1.5rem" }}>
-    <h2 style={{ fontSize: "1.6rem", marginBottom: "0.75rem" }}>
+    <h2 className={styles.Recommended} >
       Recommended
     </h2>
 

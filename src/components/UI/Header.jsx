@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 import LightDarkMode from "./LightDarkMode.jsx";
 import { Link } from "react-router-dom";
-import logo from "../../img/Favicon.png";
+
 
 export default function Header() {
   return (
@@ -15,15 +15,18 @@ export default function Header() {
           alt="Podcast App Logo"
           className={styles.logo}
           />
-         Podcast App 
-          
-         </Link>
-      </h1>
+            Podcast App
+          </Link>
+        </h1>
 
-       <Link to="/favourites">Favourites</Link>
-   
-     <LightDarkMode/>
-     
+        <div className={styles.headerRight}>
+         <Link to="/favourites" className={styles.favebtn}>
+         Favourites 💙
+        </Link>
+  
+         <LightDarkMode />
+        </div>
+  
 
     </header>
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./LightDarkMode.module.css";
 
 
 export default function LightDarkMode() {
@@ -17,8 +18,10 @@ export default function LightDarkMode() {
     };
 
    return (
-    <button  onClick={toggleTheme}>
+    <button className={styles.toggle} onClick={toggleTheme}>
+       <span className={styles.icon}>
       {theme === "light" ? "🌕" : "☀️"}
+      </span>
     </button>
   );
 }   

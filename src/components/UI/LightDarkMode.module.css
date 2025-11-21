@@ -1,0 +1,23 @@
+.toggle {
+  font-size: 1.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  background: rgba(191, 191, 239, 0.35);
+  border: 1px solid rgba(94, 94, 180, 0.35);
+  transition: 0.25s ease;
+}
+
+.icon {
+  font-size: 1.2rem;
+  transition: 0.25s ease;
+  margin-left: auto;
+}
+
+/* When dark mode is active (CSS attribute selector) */
+[data-theme='dark'] .toggle {
+  background: var(--toggle-bg-dark);
+}
+
+[data-theme='dark'] .icon {
+  margin-left: 0;
+}
