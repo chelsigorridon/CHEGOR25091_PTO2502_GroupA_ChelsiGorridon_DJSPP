@@ -50,7 +50,7 @@
 /* Favourites button styling */
 .favebtn {
   font-size: 1.4rem;
-  padding: 0.4rem 0.9rem;
+  padding: 0.4rem 0.7rem;
   border-radius: 6px;
   background: rgba(191, 191, 239, 0.35);
   border: 1px solid rgba(94, 94, 180, 0.35);
@@ -58,14 +58,20 @@
 }
 
 .favebtn:hover {
-  background: rgba(191, 191, 239, 0.55);
+  box-shadow: inset 0 0 5px rgba(115, 106, 246, 0.634);
   transform: translateY(-1px);
 }
 
 /* Light/Dark mode button, icons, etc. */
 button {
-  background: none;
-  border: none;
   cursor: pointer;
   font-size: 1.5rem;
+   
+}
+
+button:hover {
+  opacity: 0.7;
+  transition: 0.2s ease-in-out;
+   box-shadow: inset 0 0 5px rgba(115, 106, 246, 0.634);
+  transform: translateY(-1px);
 }
