@@ -11,7 +11,7 @@ export default function Header() {
       {" "}
     <Link to="/">
          <img
-         src="./img/Favicon.png"
+         src="/img/Favicon.png"
           alt="Podcast App Logo"
           className={styles.logo}
           />
