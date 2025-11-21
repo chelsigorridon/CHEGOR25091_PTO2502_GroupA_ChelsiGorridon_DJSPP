@@ -10,6 +10,10 @@
   box-shadow: 0 2px 8px rgba(160, 150, 235, 0.745);
   font-family: 'Bangers', cursive;
   border-bottom: 2px solid #e7e7ff;
+  background: var(--card-bg);
+    color: var(--card-text);
+  
+  
 }
 
 /* Left side: logo + text */
@@ -18,6 +22,8 @@
   display: flex;
   align-items: center;
   font-size: 35px;
+  
+  
 }
 
 .appHeader a {
@@ -26,6 +32,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+   color: var(--card-text);
 }
 
 .appHeader a:hover {
@@ -38,6 +45,7 @@
   height: 50px;
   width: 50px;
   object-fit: contain;
+  
 }
 
 /* Right side navigation buttons */

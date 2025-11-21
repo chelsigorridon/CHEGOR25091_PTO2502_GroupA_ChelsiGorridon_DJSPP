@@ -2,6 +2,7 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
+
 }
 
 strong {
@@ -16,7 +17,12 @@ strong {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
+   background-color: var(--genre-color);
+  color: var(--card-text);
 }
+
+
+
 .backButton {
   background: none;
   border: none;
@@ -28,6 +34,7 @@ strong {
   font-weight: bold;
   display: inline-block;
   transition: color 0.2s ease;
+  color: var(--card-text);
 }
 
 .backButton:hover {
@@ -39,6 +46,7 @@ strong {
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
+  
 }
 
 .title {
@@ -46,11 +54,14 @@ strong {
   font-weight: bold;
   margin-bottom: 0.5rem;
   margin-top: 0px;
+  color: var(--card-text);
+   
 }
 
 .description {
-  color: #444;
+   color: #444;
   margin-bottom: 1rem;
+  color: var(--card-text);
 }
 
 .genres {
@@ -58,6 +69,7 @@ strong {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  color: var(--card-text);
 }
 
 .genreBadge {
@@ -65,17 +77,22 @@ strong {
   padding: 0.3rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.85rem;
+  color: var(--card-text);
 }
 
 .metaInfo p {
   font-size: 0.875rem;
   color: #555;
   margin: 0.25rem 0;
+  color: var(--card-text);
 }
 
 .seasonInfo {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  color: var(--card-text);
+  
+  
 }
 
 .seasonHeader {
@@ -83,6 +100,7 @@ strong {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  color: var(--card-text);
 }
 
 .seasonDetails {
@@ -90,15 +108,17 @@ strong {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: rgba(191, 191, 239, 0.35);
+  color: var(--card-text);
 }
 
 .seasonIntro {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  /* align-items: center; */
   gap: 1rem;
   margin-bottom: 2rem;
+  color: var(--card-text);
 }
 
 .left {
@@ -123,22 +143,26 @@ strong {
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 6px;
   text-align: center;
-  /* padding: 0.5rem; */
+  color: var(--card-text);
+  
+ 
 }
 
 .releaseInfo {
   color: #777;
   font-size: 0.875rem;
   margin-top: 0.5rem;
+  color: var(--card-text);
+  
 }
 
 .episodeList {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  color: var(--card-text);
 }
 
 .episodeCard {
@@ -148,6 +172,7 @@ strong {
   border: 1px solid #e5e7eb;
   border-radius: 6px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  color: var(--card-text);
 }
 
 .episodeCard:hover {
@@ -158,6 +183,7 @@ strong {
 }
 .episodeInfo {
   margin-left: 10px;
+  color: var(--card-text);
 }
 
 .episodeTitle {
@@ -165,11 +191,13 @@ strong {
   font-size: 0.95rem;
   margin-bottom: 0.25rem;
   margin-top: 0px;
+  color: var(--card-text);
 }
 
 .episodeDesc {
   color: #555;
   font-size: 0.875rem;
+  color: var(--card-text);
 }
 
 @media (max-width: 600px) {

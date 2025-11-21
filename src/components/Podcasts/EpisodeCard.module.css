@@ -6,14 +6,17 @@
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(160, 150, 235, 0.745);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+   background-color: var(--genre-color);
+  color: var(--card-text);
+  
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 12px rgba(92, 75, 225, 0.923);
 }
 
 .cover {

@@ -29,6 +29,7 @@ body.dark {
   --card-bg: #222222;
   --header-bg: #141414;
   --border-color: #333333;
+  --genre-color:rgba(191, 191, 239, 0.649);
 }
 
 /* -------------- */
@@ -36,7 +37,7 @@ body.dark {
 /* -------------- */
 
 body {
-  margin: 0;
+  
   font-family: "Inter", sans-serif;
   background: var(--bg-color);
   color: var(--text-color);   /* FIXED */

@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-     
+      
       <section className={styles.controls}>
         <SearchBar />
         <GenreFilter genres={genres} />
@@ -42,6 +42,8 @@ export default function Home() {
 
     <Carousel items={carouselItems} autoPlay={true} autoPlayInterval={6000} />
   </section>
+     
+
 )}
 
       {loading && <Loading message="Loading podcasts..." />}

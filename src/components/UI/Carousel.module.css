@@ -1,7 +1,7 @@
 .carouselContainer {
   position: relative;
-  width: 100%;
-  max-width:  1250px;   
+  width: 100%;               
+  max-width: 1800px;  
   height: 275px;
   margin: 0 auto;
   overflow: hidden;
@@ -10,6 +10,7 @@
   background: rgba(191, 191, 239, 0.35);
    border-radius: 10px;
 }
+
 
 .carouselTrack {
   display: flex;
@@ -24,6 +25,8 @@
   border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(159, 142, 243, 0.425);
+   background: var(--card-bg);
+  color: var(--card-text);
 }
 
 .imageWrap {

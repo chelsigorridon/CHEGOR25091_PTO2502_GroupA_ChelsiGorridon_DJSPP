@@ -6,6 +6,8 @@
   box-shadow: 0 2px 8px rgba(160, 150, 235, 0.745);
   cursor: pointer;
   transition: transform 0.2s;
+   background: var(--card-bg);
+  color: var(--card-text);
 }
 
 .card:hover {
@@ -26,23 +28,31 @@
   margin: 0px;
   font-size: 0.8rem;
   color: var(--grey-text);
+
 }
 
 .tags {
   margin: 0.5rem 0;
+ 
+  
 }
 
 .tag {
-  background: #eee;
+  background-color: grey;
   padding: 0.3rem 0.6rem;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
   border-radius: 4px;
   display: inline-block;
   font-size: 0.8rem;
+  background-color: var(--genre-color);
+  color: var(--card-text);
+  
+  
 }
 
 .updatedText {
   font-size: 0.8rem;
   color: var(--grey-text);
+  
 }
