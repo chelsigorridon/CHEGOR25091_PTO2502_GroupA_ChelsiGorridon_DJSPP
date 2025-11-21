@@ -1,3 +1,9 @@
+/* ----------------------------------------- */
+/* Theme Toggle Button Styling               */
+/* ----------------------------------------- */
+
+/* Main toggle button container */
+
 .toggle {
   font-size: 1.4rem;
   padding: 0.4rem 0.9rem;
@@ -7,6 +13,8 @@
   transition: 0.25s ease;
 }
 
+/* Icon inside toggle (sun/moon) */
+
 .icon {
   transition: 0.25s ease;
    font-size: 1.4rem;
@@ -14,6 +22,10 @@
   border-radius: 6px;
   
 }
+
+/* ----------------------------------------- */
+/* DARK MODE OVERRIDES                       */
+/* ----------------------------------------- */
 
 
 [data-theme='dark'] .toggle {
