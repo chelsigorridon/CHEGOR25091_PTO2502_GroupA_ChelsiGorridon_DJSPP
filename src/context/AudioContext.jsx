@@ -2,35 +2,28 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 /**
  * React Context used to provide global audio playback state and controls.
- * @type {React.Context}
+ * @type {React.Context<any>}
  */
-
 const AudioContext = createContext();
 
 /**
  * AudioProvider component.
  *
- * Wraps the application and provides audio playback functionality such as:
+ * Wraps the application and provides audio playback functionality:
  * - playing/pausing audio
  * - saving/restoring listening progress
- * - tracking current episode
- * - remembering finished episodes
- * - showing progress + duration
- * - persistent state stored in localStorage
+ * - tracking the current episode
+ * - marking episodes as finished
+ * - storing persistent history in localStorage
  *
  * @param {Object} props
- * @param {React.ReactNode} props.children - Nested components that will receive audio context.
- *
- * @returns {JSX.Element} Provider wrapping child components.
+ * @param {React.ReactNode} props.children - Components wrapped by provider
+ * @returns {JSX.Element} Provider wrapper
  */
-
-
 export function AudioProvider({ children }) {
   const audioRef = useRef(new Audio());
 
-
   const [currentEpisode, setCurrentEpisode] = useState(null);
-
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -40,12 +33,11 @@ export function AudioProvider({ children }) {
    * Saves:
    * - lastPosition
    * - duration
-   * - finished status
+   * - finished state
    * - lastPlayedAt timestamp
    */
 
-   /** Persist history to localStorage *
-
+  /** Persist history to localStorage */
   const [listeningHistory, setListeningHistory] = useState(() => {
     const saved = localStorage.getItem("listeningHistory");
     return saved ? JSON.parse(saved) : {};
@@ -57,13 +49,8 @@ export function AudioProvider({ children }) {
 
   /**
    * Syncs audio element progress updates with React state + listening history.
-   * Tracks:
-   * - currentTime
-   * - duration
-   * - finished state
    */
- 
- useEffect(() => {
+  useEffect(() => {
     const audio = audioRef.current;
 
     const handleTimeUpdate = () => {
@@ -75,7 +62,7 @@ export function AudioProvider({ children }) {
       setListeningHistory((prev) => {
         const ep = prev[currentEpisode.id] || {};
 
-        const finished = 
+        const finished =
           audio.duration && audio.currentTime >= audio.duration - 1;
 
         return {
@@ -102,40 +89,37 @@ export function AudioProvider({ children }) {
     };
   }, [currentEpisode]);
 
- 
+  /**
+   * Warn user before closing tab while audio is playing.
+   */
   useEffect(() => {
     const warn = (e) => {
       if (!isPlaying) return;
       e.preventDefault();
       e.returnValue = "";
     };
+
     window.addEventListener("beforeunload", warn);
     return () => window.removeEventListener("beforeunload", warn);
   }, [isPlaying]);
 
-   /**
-   * Plays an episode.
-   * Automatically restores resume position if available.
-   *
-   * @param {Object} episode
-   * @param {string|number} episode.id - Episode ID
-   * @param {string} episode.src - Audio file URL
-   * @param {string} episode.title - Episode title
-   * @param {string} episode.showTitle - Parent show title
+  /**
+   * Plays an episode and restores last position.
    */
-  
   const playAudio = ({ id, src, title, showTitle }) => {
     const audio = audioRef.current;
 
-    if (!currentEpisode || currentEpisode.id !== id) {
+    const isNewEpisode = !currentEpisode || currentEpisode.id !== id;
+
+    if (isNewEpisode) {
       setCurrentEpisode({ id, src, title, showTitle });
       audio.src = src;
 
       const saved = listeningHistory[id];
-      if (saved && saved.lastPosition && !saved.finished) {
-        audio.currentTime = saved.lastPosition; 
+      if (saved?.lastPosition && !saved.finished) {
+        audio.currentTime = saved.lastPosition;
       } else {
-        audio.currentTime = 0; 
+        audio.currentTime = 0;
       }
     }
 
