@@ -1,3 +1,10 @@
+/* ================================
+   CONTROLS WRAPPER
+   - Holds SearchBar, GenreFilter, SortSelect
+   - Uses flex to align them on one line (where possible)
+   - Wraps on small screens
+================================ */
+
 .controls {
  display: flex;
   align-items: center;
@@ -8,11 +15,22 @@
   
 }
 
+/* ================================
+   MAIN PAGE WRAPPER
+   - Centers all content
+   - Limits width for better readability
+================================ */
+
 .main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
 }
+
+/* ================================
+   RECOMMENDED HEADER STYLING
+   - Styles the “Recommended” label above carousel
+================================ */
 
 .Recommended {
   font-weight: bold;
@@ -23,6 +41,11 @@
   padding: 10px;
   border-radius: 10px;
 }
+
+/* ================================
+   RESPONSIVE LAYOUT (≥ 667px)
+   - Adjusts spacing and alignment when screen is wider
+================================ */
 
 
 @media (min-width: 667px) {
