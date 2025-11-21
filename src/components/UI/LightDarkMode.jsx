@@ -20,7 +20,7 @@ export default function LightDarkMode() {
    return (
     <button className={styles.toggle} onClick={toggleTheme}>
        <span className={styles.icon}>
-      {theme === "light" ? "🌕" : "☀️"}
+      {theme === "light" ? "☾" : "☀︎"}
       </span>
     </button>
   );
