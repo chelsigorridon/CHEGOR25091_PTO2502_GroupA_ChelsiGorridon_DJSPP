@@ -25,7 +25,7 @@ export default function AudioPlayer() {
           isPlaying ? pauseAudio() : playAudio(currentEpisode)
         }
       >
-        {isPlaying ? "⏸️" : "▶️"}
+        {isPlaying ? "⏸︎" : "▶︎"}
       </button>
 
       {/* Episode info */}
